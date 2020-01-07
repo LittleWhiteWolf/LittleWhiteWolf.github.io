@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="莫道清欢少">
 <meta property="og:description" content="多数交易者的多数财富都来自很少几次的大手笔交易，且这些交易是自己能力圈范围之内的趋势性机会为主，要遵循这样的统计常识。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-23T02:41:20.834Z">
+<meta property="og:updated_time" content="2020-01-06T11:12:41.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清欢">
 <meta name="twitter:description" content="多数交易者的多数财富都来自很少几次的大手笔交易，且这些交易是自己能力圈范围之内的趋势性机会为主，要遵循这样的统计常识。">
@@ -96,7 +96,27 @@
       
         <p>多数交易者的多数财富都来自很少几次的大手笔交易，且这些交易是自己能力圈范围之内的趋势性机会为主，要遵循这样的统计常识。</p>
 <a id="more"></a>
-<h2 id="倒序更新"><a href="#倒序更新" class="headerlink" title="倒序更新"></a>倒序更新</h2><p>2019.12.23 第9笔：东吴-成都燃气1000，加9100（新股中签）。</p>
+<h2 id="倒序更新"><a href="#倒序更新" class="headerlink" title="倒序更新"></a>倒序更新</h2><p>2020.01.06 第10笔：乱来的，加2200。其中2000将抵指数基金定投，剩200去往余利宝填亏。</p>
+<ol>
+<li><strong>小赚不赔</strong></li>
+</ol>
+<ul>
+<li>是的我等不及，并因为多看了几眼K线在下行，提前终止了“核桃”。虽然没有赚大，但是做到了小赚不赔，与同期其他乱来的操作合计落袋2200，结果不坏。</li>
+</ul>
+<ol start="2">
+<li><strong>定投买入</strong></li>
+</ol>
+<ul>
+<li>我确实对自己在做的事没有明晰的逻辑（所以，别落下看书和思考），那么还是再次强调：不要梭哈买进，要慢得下来：定投式逐步入场好么。</li>
+</ul>
+<ol start="3">
+<li><strong>投机结合</strong></li>
+</ol>
+<ul>
+<li>忍受波动等长期回报，或者盯着K线积极动作，这是个十分困难的选择，因为我本性就极易摇摆。但对于现阶段来说，也许第二个选项——有可观的浮盈果断卖出——更有利于本金的快速积累。</li>
+</ul>
+<hr>
+<p>2019.12.23 第9笔：东吴-成都燃气1000，加9100（新股中签）。</p>
 <p>2019.12.12<br>踏空，少收获一大笔，心理失衡…但想想吧，<strong>连续三天早新闻都听着”中央经济工作会议”</strong>却没意识，只能说我认知水平还是太低，没吃到肉是自然规律，也是真的不爽。</p>
 <p>2019.12.11 手痒，中信账户出完东航又急接着搏了一把宝钢13200，回掉了1300。特么的。<br>2019.12.11 第8笔：东吴-东方航空21200，加2600（失误在没定好心理价位，少落袋1800）<br>2019.12.11 第7笔：中信-东方航空14200，减负2600（还有6.5k）</p>
 <p>2019.12.10 我确认自己现在不适合做黄金交易，SGE账户里已全部平掉，待用东吴或中信证券的收入填亏。<br>2019.11.25 第6笔：中信-宝钢股份12000，加4300。<br>2019.11.19早-小手笔：只管1000股一叠。之前在东吴操作的宝钢买入太急，2000、3000一买，成本架在高位预计难有收益<br>2019.11.18晚-振中处应该应该轻仓：借钱开1手空单，结果猜错方向，看着从浮盈1k到第二天早上浮亏1.6k。如果有原则，看到振动的中心就出掉，可以逃开的。</p>
@@ -250,11 +270,82 @@
 <script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <script>
+  let t = true // global
+
   $(function () {
-    $("#realized").niceScroll({
-      cursorcolor: "#e6e6e6",
-      cursoropacitymin: 0.15,
-      cursoropacitymax: 0.5
+    // $("#realized").niceScroll({
+    //   cursorcolor: "#e6e6e6",
+    //   cursoropacitymin: 0.15,
+    //   cursoropacitymax: 0.5
+    // }) // 已停用
+
+    function collapse(self) {
+      $(self).find('i').removeClass('fa-chevron-down')
+      $(self).find('i').addClass('fa-chevron-right')
+      const date = $(self).text().trim().replace(/\./g, '-')
+      $('#target-list-west li.f-'+date).css('display', 'none')
+      let sum = 0
+      $('#target-list-west li.f-'+date).each(function(idx, el) {
+        const val = parseFloat($(el).text().split('，')[1].split('-')[0])
+        sum += val
+      })
+      // 尚无加号的情况下才改span的text
+      if ($(self).find('span').text().indexOf('+')<0) {
+        const tailed = ' '+date.replace(/-/g, '.')+' + '+sum
+        $(self).find('span').text(tailed)
+      }
+    }
+    function expand(self) {
+      $(self).find('i').removeClass('fa-chevron-right')
+      $(self).find('i').addClass('fa-chevron-down')
+      const date = $(self).text().split(' + ')[0].trim().replace(/\./g, '-')
+      $('#target-list-west li.f-'+date).css('display', 'block')
+      const noTail = $(self).text().split(' + ')[0]
+      $(self).find('span').text(noTail)
+    }
+    function partSum(self) {
+      let sum = 0
+      const date = $(self).text().trim().replace(/\./g, '-')
+      $('#target-list-west li.f-'+date).each(function(idx, el) {
+        const val = parseFloat($(el).text().split('，')[1].split('-')[0])
+        sum += val
+      })
+      const tailed = ' '+date.replace(/-/g, '.')+' + '+sum
+      $(self).find('span').text(tailed)
+    }
+
+    $('#pa').on('click', function () {
+      const action = t ? expand : collapse
+      $('#target-list-west li.separate').each(function(idx,el) {
+        action(el)
+      })
+      let sum = 0
+      if (t) {
+        $('#target-list-west li.fulfilled').each(function(idx, el) {
+          const val = parseFloat($(el).text().split('，')[1].split('-')[0])
+          sum += val
+        })
+        $('#pa').text('+ ' + sum.toFixed(2))
+      } else {
+        $('#pa').text('啪 ！')
+      }
+      t = !t
+    })
+
+    $('#target-list-west li.separate').on('click', function(){
+      const self = this
+      if ($(self).find('i').hasClass('fa-chevron-right')) {
+        expand(self)
+      } else {
+        collapse(self)
+      }
+    })
+
+    // 未展开的li.separate下的各自金额之和
+    $('#target-list-west li.separate').each(function(idx,el){
+      if (idx !== 0) { // 从第2条开始
+        partSum(el)
+      }
     })
   })
 </script>
