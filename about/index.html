@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="莫道清欢少">
 <meta property="og:description" content="成就墙 &amp; 许愿池         已解锁            穷查理宝典：大赌大赢       富爸爸穷爸爸：增资产，减负债       2019.12.31 碎片兑换马超+幸存者皮肤       半小时漫画经济学2：金融危机       2019.10.14 氪金-上官婉儿修竹墨客       2019.10.02 吴兴天字古道       2019.09.29 宋音9       201">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-25T06:30:27.156Z">
+<meta property="og:updated_time" content="2020-01-26T03:31:18.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="莫道清欢少">
 <meta name="twitter:description" content="成就墙 &amp; 许愿池         已解锁            穷查理宝典：大赌大赢       富爸爸穷爸爸：增资产，减负债       2019.12.31 碎片兑换马超+幸存者皮肤       半小时漫画经济学2：金融危机       2019.10.14 氪金-上官婉儿修竹墨客       2019.10.02 吴兴天字古道       2019.09.29 宋音9       201">
@@ -70,7 +70,7 @@
         <section id="main"><article id="page-" class="article article-type-page" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/about/index.html" class="article-date">
-  <time datetime="2020-01-25T06:30:27.158Z" itemprop="datePublished">2020-01-25</time>
+  <time datetime="2020-01-26T03:31:18.275Z" itemprop="datePublished">2020-01-26</time>
 </a>
     
   </div>
@@ -115,7 +115,9 @@
     </ul>
   </div>
   <div class="column column-center">
-    <h4 style="">& 领币</h4>
+    <h4 id="alreay-paid" class="column-center-h4">& 领币
+      <span id="ellipsis-east" class="ellipsis">***</span>
+    </h4><!--已付-->
     <ul todo="居家服
     大显示屏(airplay)，扩展坞，视频转接线
     十九年间谋杀小叙
@@ -160,12 +162,11 @@
       <li><i class="fa fa-square-o"></i> 明洞王妃家，252 - 银卡</li>
       <li><i class="fa fa-square-o"></i> 京东白条床1/6，266.5 - 中信</li><!--每月1日-->
 <!--      <li><i class="fa fa-square-o"></i> 京东白条床2/6，266.5</li>-->
-      <li><i class="fa fa-square-o"></i> 套头衫，268 - 民生白</li>
       <li><i class="fa fa-square-o"></i> 借呗利息，272 - 银卡</li>
       <li><i class="fa fa-square-o"></i> 微粒贷利息，283.5 - 银卡</li>
       <li><i class="fa fa-square-o"></i> 海底捞，354 - 微信钱包</li>
       <li><i class="fa fa-square-o"></i> 大衣，399 - 光大紫</li>
-      <li><i class="fa fa-square-o"></i> 阿狗，479.2 - 微信钱包</li>
+      <li><i class="fa fa-square-o"></i> 阿狗，502.2 - 微信钱包</li>
       <!--
       电影-误杀：麦当劳可乐9.5+三只兔子86+停车费5 = 100.5
       修车：16（对不起砍价这点零头也没成功）
@@ -182,6 +183,7 @@
       嘉兴万达停车费：10
       山东手工水饺：14
       理发：20
+      套头衫退货：23
       -->
       <li><i class="fa fa-square-o"></i> 充加油卡，600 - 广发车金</li>
       <li><i class="fa fa-square-o"></i> 中信账单，741.66 - 银卡</li><!--本期借道：银卡>余利宝>中信-->
@@ -197,7 +199,9 @@
       <li><i class="fa fa-square-o"></i> 家用床B，4400 - 银卡</li>
 <!--      <li><i class="fa fa-square-o"></i> 装修-铝合金门窗，7000 - 家用</li>-->
     </ul>
-    <h4 style="">丢 ~</h4><!--不再那么想要的东西-->
+    <h4 id="not-paid-yet" style="cursor: pointer; position: relative">丢 ~
+      <span id="ellipsis-gao" class="ellipsis">***</span>
+    </h4><!--未付-->
     <ul todo="江小白" id="target-list-gao" style="list-style-type: none; margin-left: 5px;">
       <li><i class="fa fa-square-o"></i> 后羿精灵王，28</li>
       <li><i class="fa fa-square-o"></i> 司马懿魇语军师，28</li>
@@ -353,7 +357,9 @@ li.fulfilled {
   from { color: white; height: 0; margin-bottom: 0;}
   to { color: #555; height: 22px; margin-bottom: 8px;}
 }
-li.fulfilled-expand {
+li.fulfilled-expand,
+#target-list-east li.expanded,
+#target-list-gao li.expanded {
   color: #555;
   height: 22px;
   margin-bottom: 8px;
@@ -365,7 +371,9 @@ li.fulfilled-expand {
   from { color: #555; height: 22px; margin-bottom: 8px;}
   to { color: white; height: 0; margin-bottom: 0;}
 }
-li.fulfilled-collapse {
+li.fulfilled-collapse,
+#target-list-east li.collapsed,
+#target-list-gao li.collapsed {
   color: white;
   height: 0;
   margin-bottom: 0;
@@ -388,6 +396,19 @@ li i.fa-chevron-down {
 }
 #pa:hover {
   color: #258fb8;
+}
+.column-center-h4 {
+  cursor: pointer;
+  position: relative
+}
+.ellipsis {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 17px;
+  color: #555;
+  font-size: 13px;
+  font-weight: normal;
 }
 </style>
 
@@ -540,6 +561,24 @@ li i.fa-chevron-down {
       const tailed = ' '+date.replace(/-/g, '.')+' + '+sum
       $(self).find('span').text(tailed)
     }
+    function collapseColumnCenter(target) {
+      $('#target-list-'+target+' li').addClass('collapsed')
+      $('#target-list-'+target+' li').removeClass('expanded')
+      $('#ellipsis-'+target).css('display', 'block')
+    }
+    function expandColumnCenter(target) {
+      $('#target-list-'+target+' li').addClass('expanded')
+      $('#target-list-'+target+' li').removeClass('collapsed')
+      $('#ellipsis-'+target).css('display', 'none')
+    }
+    function partSumColumnCenter(target) {
+      let sum = 0
+      $('#target-list-'+target+' li').each(function(idx,el) {
+          const val = parseFloat($(el).text().split('，')[1].split('-')[0])
+          sum+=val
+      })
+      $('#ellipsis-'+target).text('合 ' + sum)
+    }
 
     $('#pa').on('click', function () {
       const action = t ? expand : collapse
@@ -567,6 +606,26 @@ li i.fa-chevron-down {
         collapse(self)
       }
     })
+
+    $('#alreay-paid').on('click', function() {
+      if ($('#target-list-east').find('li').hasClass('collapsed')) {
+        expandColumnCenter('east')
+      } else {
+        collapseColumnCenter('east')
+      }
+    })
+
+    $('#not-paid-yet').on('click', function() {
+      if ($('#target-list-gao').find('li').hasClass('collapsed')) {
+        expandColumnCenter('gao')
+      } else {
+        collapseColumnCenter('gao')
+      }
+    })
+
+    // 计算已付、未付的各自合计值
+    partSumColumnCenter('east')
+    partSumColumnCenter('gao')
 
     // 未展开的li.separate下的各自金额之和
     $('#target-list-west li.separate').each(function(idx,el){
